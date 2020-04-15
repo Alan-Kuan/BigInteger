@@ -19,10 +19,13 @@ protected:
 	vector<Digit> num_literal;
 	bool is_negative;
 
+	BigInteger fromStdString(string);
+
 public:
 	BigInteger(void);
 	BigInteger(const BigInteger&);
 	BigInteger(int);
+	BigInteger(string);
 
 	BigInteger operator-(void);
 
@@ -38,6 +41,7 @@ public:
 
 	BigInteger& operator=(BigInteger);
 	BigInteger& operator=(int);
+	BigInteger& operator=(string);
 
 	BigInteger& operator+=(BigInteger);
 	BigInteger& operator+=(int);

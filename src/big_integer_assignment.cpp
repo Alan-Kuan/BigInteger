@@ -32,6 +32,12 @@ BigInteger& BigInteger::operator=(int n)
 	return *this;
 }
 
+BigInteger& BigInteger::operator=(string s)
+{
+	*this = fromStdString(s);
+	return *this;
+}
+
 BigInteger& BigInteger::operator+=(BigInteger b)
 {
 	*this = *this + b;

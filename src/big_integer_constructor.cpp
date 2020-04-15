@@ -15,3 +15,8 @@ BigInteger::BigInteger(int n)
 {
 	*this = n;
 }
+
+BigInteger::BigInteger(string s)
+{
+	*this = s;
+}
