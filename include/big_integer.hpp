@@ -19,7 +19,7 @@ protected:
 	vector<Digit> num_literal;
 	bool is_negative;
 
-	BigInteger fromStdString(string);
+	void fromStdString(string);
 
 public:
 	BigInteger(void);

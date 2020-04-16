@@ -17,6 +17,8 @@ BigInteger& BigInteger::operator=(BigInteger n)
 
 BigInteger& BigInteger::operator=(int n)
 {
+	num_literal.clear();
+
 	is_negative = n < 0;
 
 	n = ABS(n);
@@ -34,7 +36,7 @@ BigInteger& BigInteger::operator=(int n)
 
 BigInteger& BigInteger::operator=(string s)
 {
-	*this = fromStdString(s);
+	fromStdString(s);
 	return *this;
 }
 

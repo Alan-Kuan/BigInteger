@@ -1,27 +1,53 @@
 #include "big_integer.hpp"
 
-BigInteger BigInteger::fromStdString(string s)
+namespace {
+
+	inline bool isWhiteSpace(char ch){ return ch == ' ' || ch == '\t' || ch == '\n'; }
+
+	inline bool isDigit(char ch){ return ch >= '0' && ch <= '9'; }
+
+};
+
+void BigInteger::fromStdString(string s)
 {
-	int len = s.length();
+	num_literal.clear();
 
-	// TODO: make this function work as BigInteger version atoi
+	// whether meet the first non-whitespace character
+	bool meet_nonspace = false;
 
-	if(s[0] == '-'){
+	for(int i = 0; i < s.length(); i++){
 
-		is_negative = true;
+		if(!meet_nonspace){
 
-		num_literal.resize(len - 1);
+			if(isWhiteSpace(s[i]))
+				continue;
 
-	}else{
+			// If it's the first time to meet the first non-whitespace character,
+			// we should check whether it starts with a sign character or any digit.
+			meet_nonspace = true;
 
-		is_negative = false;
+			if(s[i] == '+')
+				continue;
+			else if(s[i] == '-')
+				is_negative = true;
+			else if(isDigit(s[i]))
+				num_literal.push_back(s[i]);
+			else{
+				num_literal.push_back(0);
+				break;
+			}
 
-		num_literal.resize(len);
+		}else{
+
+			// If we meet another non-whitespace character again,
+			// we just ignore those characters behind.
+			if(!isDigit(s[i]))
+				break;
+
+			num_literal.push_back(s[i]);
+
+		}
 
 	}
 
-	for(int i = 0; i < len; i++)
-		num_literal[i] = s[len - i - 1];
-	
-	return *this;
 }
