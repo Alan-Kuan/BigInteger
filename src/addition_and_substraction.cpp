@@ -10,7 +10,14 @@ BigInteger BigInteger::operator-(void)
 
 BigInteger BigInteger::operator+(BigInteger b)
 {
+	if(is_negative && !b.is_negative)
+		return b - (-(*this));
+	if(!is_negative && b.is_negative)
+		return *this - (-b);
 
+	// if both *this and b are positive or negative
+	// it is okay to use the add function
+	return *this + b;
 
 }
 
@@ -23,9 +30,12 @@ BigInteger BigInteger::operator+(int b)
 
 BigInteger BigInteger::operator-(BigInteger b)
 {
+	// either this is negative or b is negative
+	// but not both
+	if(!is_negative != !b.is_negative)
+		return *this + (-b);	
 
-	if(b.is_negative)
-
+	return *this - b;
 
 }
 

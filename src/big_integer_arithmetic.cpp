@@ -48,3 +48,8 @@ BigInteger BigInteger::add(BigInteger b)
 	return res;
 }
 
+BigInteger minus(BigInteger b)
+{
+
+
+}
