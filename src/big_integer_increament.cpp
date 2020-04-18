@@ -8,15 +8,20 @@ BigInteger& BigInteger::operator++(void)
 
 BigInteger BigInteger::operator++(int _)
 {
-	return *this + 1;
+	BigInteger tmp(*this);
+	*this += 1;
+	return tmp;
 }
 
 BigInteger& BigInteger::operator--(void)
 {
-
+	*this -= 1;
+	return *this;
 }
 
 BigInteger BigInteger::operator--(int _)
 {
-	return *this - 1;
+	BigInteger tmp(*this);
+	*this -= 1;
+	return tmp;
 }
