@@ -21,6 +21,9 @@ protected:
 
 	void fromStdString(string);
 
+	BigInteger add(BigInteger);
+	BigInteger minus(BigInteger);
+
 public:
 	BigInteger(void);
 	BigInteger(const BigInteger&);
