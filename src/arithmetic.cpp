@@ -7,7 +7,7 @@ namespace {
 
 }
 
-BigInteger BigInteger::add(BigInteger b)
+BigInteger BigInteger::plus(BigInteger b)
 {
 	BigInteger res;
 

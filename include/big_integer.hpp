@@ -21,7 +21,7 @@ protected:
 
 	void fromStdString(string);
 
-	BigInteger add(BigInteger);
+	BigInteger plus(BigInteger);
 	BigInteger minus(BigInteger);
 
 public:

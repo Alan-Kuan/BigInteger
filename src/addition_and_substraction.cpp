@@ -15,10 +15,9 @@ BigInteger BigInteger::operator+(BigInteger b)
 	if(!is_negative && b.is_negative)
 		return *this - (-b);
 
-	// if both *this and b are positive or negative
-	// it is okay to use the add function
-	return *this + b;
-
+	// if both this and b are positive or negative
+	// it is okay to use the plus function
+	return plus(b);
 }
 
 BigInteger BigInteger::operator+(int b)
@@ -35,8 +34,7 @@ BigInteger BigInteger::operator-(BigInteger b)
 	if(!is_negative != !b.is_negative)
 		return *this + (-b);	
 
-	return *this - b;
-
+	return minus(b);
 }
 
 BigInteger BigInteger::operator-(int b)
