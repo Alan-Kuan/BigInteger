@@ -11,16 +11,16 @@ BigInteger BigInteger::plus(BigInteger b)
 {
 	BigInteger res;
 
-	int len1 = num_literal.size();
-	int len2 = b.num_literal.size();
+	size_t len1 = num_literal.size();
+	size_t len2 = b.num_literal.size();
 
-	int max_len = MAX(len1, len2);
+	size_t max_len = MAX(len1, len2);
 
 	res.num_literal.resize(max_len + 1);
 
 	int carry = 0;
 
-	for(int i = 0; i < max_len; i++){
+	for(size_t i = 0; i < max_len; i++){
 
 		if(i >= len1 && i < len2)
 			res.num_literal[i] = b.num_literal[i] + carry;

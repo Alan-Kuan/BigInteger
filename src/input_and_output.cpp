@@ -17,7 +17,7 @@ ostream& operator<<(ostream& os, const BigInteger& n)
 	if(n.is_negative)
 		os << '-';
 
-	for(int i = n.num_literal.size(); i >= 0; i--)
+	for(size_t i = n.num_literal.size(); i >= 0; i--)
 		os << n.num_literal[i];
 
 	return os;

@@ -15,7 +15,7 @@ void BigInteger::fromStdString(string s)
 	// whether meet the first non-whitespace character
 	bool meet_nonspace = false;
 
-	for(int i = 0; i < s.length(); i++){
+	for(size_t i = 0; i < s.length(); i++){
 
 		if(!meet_nonspace){
 
