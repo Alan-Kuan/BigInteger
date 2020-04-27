@@ -74,13 +74,13 @@ bool BigInteger::operator>(int b)
 
 bool BigInteger::operator<(BigInteger b)
 {
-    return !(*this == b || *this > b);
+    return b > *this;
 }
 
 bool BigInteger::operator<(int b)
 {
     BigInteger tmp(b);
-    return *this < tmp;
+    return tmp > *this;
 }
 
 bool BigInteger::operator>=(BigInteger b)
@@ -96,11 +96,11 @@ bool BigInteger::operator>=(int b)
 
 bool BigInteger::operator<=(BigInteger b)
 {
-    return *this < b || *this == b;
+    return b > *this || *this == b;
 }
 
 bool BigInteger::operator<=(int b)
 {
     BigInteger tmp(b);
-    return *this < tmp || *this == tmp;
+    return tmp > *this || *this == tmp;
 }
