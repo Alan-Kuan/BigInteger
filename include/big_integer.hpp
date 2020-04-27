@@ -30,6 +30,19 @@ public:
 	BigInteger(int);
 	BigInteger(string);
 
+    bool operator==(BigInteger);
+    bool operator==(int);
+    bool operator!=(BigInteger);
+    bool operator!=(int);
+    bool operator>(BigInteger);
+    bool operator>(int);
+    bool operator<(BigInteger);
+    bool operator<(int);
+    bool operator>=(BigInteger);
+    bool operator>=(int);
+    bool operator<=(BigInteger);
+    bool operator<=(int);
+
 	BigInteger operator-(void);
 
 	BigInteger operator+(BigInteger);
