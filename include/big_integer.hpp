@@ -19,10 +19,10 @@ protected:
 	vector<Digit> num_literal;
 	bool is_negative;
 
-	void fromStdString(string);
+	void fromStdString(const string&);
 
-	BigInteger plus(BigInteger);
-	BigInteger minus(BigInteger);
+	BigInteger plus(const BigInteger&) const;
+	BigInteger minus(const BigInteger&) const;
 
 public:
 	BigInteger(void);
@@ -30,38 +30,38 @@ public:
 	BigInteger(int);
 	BigInteger(string);
 
-    bool operator==(BigInteger);
-    bool operator==(int);
-    bool operator!=(BigInteger);
-    bool operator!=(int);
-    bool operator>(BigInteger);
-    bool operator>(int);
-    bool operator<(BigInteger);
-    bool operator<(int);
-    bool operator>=(BigInteger);
-    bool operator>=(int);
-    bool operator<=(BigInteger);
-    bool operator<=(int);
+    bool operator==(const BigInteger&) const;
+    bool operator==(int) const;
+    bool operator!=(const BigInteger&) const;
+    bool operator!=(int) const;
+    bool operator>(const BigInteger&) const;
+    bool operator>(int) const;
+    bool operator<(const BigInteger&) const;
+    bool operator<(int) const;
+    bool operator>=(const BigInteger&) const;
+    bool operator>=(int) const;
+    bool operator<=(const BigInteger&) const;
+    bool operator<=(int) const;
 
-	BigInteger operator-(void);
+	BigInteger operator-(void) const;
 
-	BigInteger operator+(BigInteger);
-	BigInteger operator+(int);
-	BigInteger operator-(BigInteger);
-	BigInteger operator-(int);
+	BigInteger operator+(const BigInteger&) const;
+	BigInteger operator+(int) const;
+	BigInteger operator-(const BigInteger&) const;
+	BigInteger operator-(int) const;
 
 	BigInteger& operator++(void);
 	BigInteger operator++(int);
 	BigInteger& operator--(void);
 	BigInteger operator--(int);
 
-	BigInteger& operator=(BigInteger);
+	BigInteger& operator=(const BigInteger&);
 	BigInteger& operator=(int);
-	BigInteger& operator=(string);
+	BigInteger& operator=(const string&);
 
-	BigInteger& operator+=(BigInteger);
+	BigInteger& operator+=(const BigInteger&);
 	BigInteger& operator+=(int);
-	BigInteger& operator-=(BigInteger);
+	BigInteger& operator-=(const BigInteger&);
 	BigInteger& operator-=(int);
 
 	friend istream& operator>>(istream&, BigInteger&);

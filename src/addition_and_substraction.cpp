@@ -1,14 +1,16 @@
 #include "big_integer.hpp"
 
 // unary minus
-BigInteger BigInteger::operator-(void)
+BigInteger BigInteger::operator-(void) const
 {
-	is_negative = !is_negative;
+    BigInteger tmp(*this);
 
-	return *this;
+    tmp.is_negative = !is_negative;
+
+	return tmp;
 }
 
-BigInteger BigInteger::operator+(BigInteger b)
+BigInteger BigInteger::operator+(const BigInteger& b) const
 {
 	if(is_negative && !b.is_negative)
 		return b - (-(*this));
@@ -20,14 +22,14 @@ BigInteger BigInteger::operator+(BigInteger b)
 	return plus(b);
 }
 
-BigInteger BigInteger::operator+(int b)
+BigInteger BigInteger::operator+(int b) const
 {
 	BigInteger tmp(b);
 
 	return *this + tmp;
 }
 
-BigInteger BigInteger::operator-(BigInteger b)
+BigInteger BigInteger::operator-(const BigInteger& b) const
 {
 	// either this is negative or b is negative
 	// but not both
@@ -37,7 +39,7 @@ BigInteger BigInteger::operator-(BigInteger b)
 	return minus(b);
 }
 
-BigInteger BigInteger::operator-(int b)
+BigInteger BigInteger::operator-(int b) const
 {
 	BigInteger tmp(b);
 

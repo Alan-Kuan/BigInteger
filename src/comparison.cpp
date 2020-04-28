@@ -1,7 +1,7 @@
 #include "big_integer.hpp"
 
 
-bool BigInteger::operator==(BigInteger b)
+bool BigInteger::operator==(const BigInteger& b) const
 {
     if(is_negative != b.is_negative)
         return false;
@@ -16,24 +16,24 @@ bool BigInteger::operator==(BigInteger b)
     return true;
 }
 
-bool BigInteger::operator==(int b)
+bool BigInteger::operator==(int b) const
 {
     BigInteger tmp(b);
     return *this == tmp;
 }
 
-bool BigInteger::operator!=(BigInteger b)
+bool BigInteger::operator!=(const BigInteger& b) const
 {
     return !(*this == b);
 }
 
-bool BigInteger::operator!=(int b)
+bool BigInteger::operator!=(int b) const
 {
     BigInteger tmp(b);
     return !(*this == tmp);
 }
 
-bool BigInteger::operator>(BigInteger b)
+bool BigInteger::operator>(const BigInteger& b) const
 {
     if(!is_negative && b.is_negative)
         return true;
@@ -66,40 +66,40 @@ bool BigInteger::operator>(BigInteger b)
     return (!abs_val_is_greater != !is_negative);
 }
 
-bool BigInteger::operator>(int b)
+bool BigInteger::operator>(int b) const
 {
     BigInteger tmp(b);
     return *this > tmp;
 }
 
-bool BigInteger::operator<(BigInteger b)
+bool BigInteger::operator<(const BigInteger& b) const
 {
     return b > *this;
 }
 
-bool BigInteger::operator<(int b)
+bool BigInteger::operator<(int b) const
 {
     BigInteger tmp(b);
     return tmp > *this;
 }
 
-bool BigInteger::operator>=(BigInteger b)
+bool BigInteger::operator>=(const BigInteger& b) const
 {
     return *this > b || *this == b;
 }
 
-bool BigInteger::operator>=(int b)
+bool BigInteger::operator>=(int b) const
 {
     BigInteger tmp(b);
     return *this > tmp || *this == tmp;
 }
 
-bool BigInteger::operator<=(BigInteger b)
+bool BigInteger::operator<=(const BigInteger& b) const
 {
     return b > *this || *this == b;
 }
 
-bool BigInteger::operator<=(int b)
+bool BigInteger::operator<=(int b) const
 {
     BigInteger tmp(b);
     return tmp > *this || *this == tmp;

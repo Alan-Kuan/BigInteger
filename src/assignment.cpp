@@ -7,7 +7,7 @@ namespace {
 
 }
 
-BigInteger& BigInteger::operator=(BigInteger n)
+BigInteger& BigInteger::operator=(const BigInteger& n)
 {
 	is_negative = n.is_negative;
 	num_literal = n.num_literal;
@@ -34,13 +34,13 @@ BigInteger& BigInteger::operator=(int n)
 	return *this;
 }
 
-BigInteger& BigInteger::operator=(string s)
+BigInteger& BigInteger::operator=(const string& s)
 {
 	fromStdString(s);
 	return *this;
 }
 
-BigInteger& BigInteger::operator+=(BigInteger b)
+BigInteger& BigInteger::operator+=(const BigInteger& b)
 {
 	*this = *this + b;
 	return *this;
@@ -52,7 +52,7 @@ BigInteger& BigInteger::operator+=(int b)
 	return *this;
 }
 
-BigInteger& BigInteger::operator-=(BigInteger b)
+BigInteger& BigInteger::operator-=(const BigInteger& b)
 {
 	*this = *this - b;
 	return *this;

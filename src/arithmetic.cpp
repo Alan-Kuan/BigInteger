@@ -7,7 +7,7 @@ namespace {
 
 }
 
-BigInteger BigInteger::plus(BigInteger b)
+BigInteger BigInteger::plus(const BigInteger& b) const
 {
 	BigInteger res;
 
@@ -46,7 +46,7 @@ BigInteger BigInteger::plus(BigInteger b)
 	return res;
 }
 
-BigInteger BigInteger::minus(BigInteger b)
+BigInteger BigInteger::minus(const BigInteger& b) const
 {
     BigInteger res;
 

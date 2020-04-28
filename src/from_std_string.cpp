@@ -8,7 +8,7 @@ namespace {
 
 };
 
-void BigInteger::fromStdString(string s)
+void BigInteger::fromStdString(const string& s)
 {
 	num_literal.clear();
 
