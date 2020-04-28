@@ -1,4 +1,5 @@
 #include "big_integer.hpp"
+#include <algorithm>
 
 namespace {
 
@@ -49,5 +50,8 @@ void BigInteger::fromStdString(const string& s)
 		}
 
 	}
+
+    // reverse it so that it start with the least significant digit
+    std::reverse(num_literal.begin(), num_literal.end());
 
 }
