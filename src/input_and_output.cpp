@@ -1,4 +1,3 @@
-
 #include "big_integer.hpp"
 
 istream& operator>>(istream& is, BigInteger& n)
