@@ -48,7 +48,7 @@ bool BigInteger::operator>(const BigInteger& b) const
     // wheter |num1| > |num2|
     bool abs_val_is_greater = false;
 
-    for(size_t i = num_literal.size() - 1; i >= 0; i--){
+    for(size_t i = num_literal.size() - 1; i < num_literal.size(); i--){
 
         if(num_literal[i] > b.num_literal[i]){
 
