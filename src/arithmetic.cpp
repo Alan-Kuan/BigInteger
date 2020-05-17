@@ -59,23 +59,23 @@ BigInteger BigInteger::minus(const BigInteger& b) const
 
     if(*this >= b){
 
-        Digit negative_carry = 0;
+        Digit borrow = 0;
 
         for(size_t i = 0; i < len1; i++){
 
             if(i >= len2)
-                res.num_literal[i] = num_literal[i] + negative_carry;
+                res.num_literal[i] = num_literal[i] - borrow;
             else
-                res.num_literal[i] = num_literal[i] - b.num_literal[i] + negative_carry;
+                res.num_literal[i] = num_literal[i] - b.num_literal[i] - borrow;
 
             if(res.num_literal[i] < 0){
 
                 res.num_literal[i] += 10;
 
-                negative_carry = -1;
+                borrow = 1;
 
             }else
-                negative_carry = 0;
+                borrow = 0;
 
         }
 
@@ -83,23 +83,23 @@ BigInteger BigInteger::minus(const BigInteger& b) const
 
         res.is_negative = true;
 
-        Digit negative_carry = 0;
+        Digit borrow = 0;
 
         for(size_t i = 0; i < len2; i++){
 
             if(i >= len1)
-                res.num_literal[i] = b.num_literal[i] + negative_carry;
+                res.num_literal[i] = b.num_literal[i] - borrow;
             else
-                res.num_literal[i] = b.num_literal[i] - num_literal[i] + negative_carry;
+                res.num_literal[i] = b.num_literal[i] - num_literal[i] - borrow;
 
             if(res.num_literal[i] < 0){
 
                 res.num_literal[i] += 10;
 
-                negative_carry = -1;
+                borrow = 1;
 
             }else
-                negative_carry = 0;
+                borrow = 0;
 
         }
 
