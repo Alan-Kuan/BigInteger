@@ -5,6 +5,8 @@ namespace {
 
 	inline int MAX(int a, int b){ return a > b ? a : b; }
 
+    const Digit DIGIT_10 = '0' + 10;
+
 }
 
 BigInteger BigInteger::plus(const BigInteger& b) const
@@ -27,9 +29,10 @@ BigInteger BigInteger::plus(const BigInteger& b) const
 		else if(i < len1 && i >= len2)
 			res.num_literal[i] = num_literal[i] + carry;
 		else
-			res.num_literal[i] = num_literal[i] + b.num_literal[i] + carry;
+			res.num_literal[i] = num_literal[i] + b.num_literal[i] + carry - '0';
+            // == (num_literal[i]-'0' + b.num_literal[i]-'0' + carry) + '0'
 
-		if(res.num_literal[i] >= 10){
+		if(res.num_literal[i] >= DIGIT_10){
 
 			res.num_literal[i] -= 10;
 
@@ -66,9 +69,10 @@ BigInteger BigInteger::minus(const BigInteger& b) const
             if(i >= len2)
                 res.num_literal[i] = num_literal[i] - borrow;
             else
-                res.num_literal[i] = num_literal[i] - b.num_literal[i] - borrow;
+                res.num_literal[i] = num_literal[i] - b.num_literal[i] - borrow + '0';
+                // == (num_literal[i]-'0' - (b.num_literal[i]-'0') - borrow) + '0'
 
-            if(res.num_literal[i] < 0){
+            if(res.num_literal[i] < '0'){
 
                 res.num_literal[i] += 10;
 
@@ -90,9 +94,10 @@ BigInteger BigInteger::minus(const BigInteger& b) const
             if(i >= len1)
                 res.num_literal[i] = b.num_literal[i] - borrow;
             else
-                res.num_literal[i] = b.num_literal[i] - num_literal[i] - borrow;
+                res.num_literal[i] = b.num_literal[i] - num_literal[i] - borrow + '0';
+                // == (num_literal[i]-'0' - (b.num_literal[i]-'0') - borrow) + '0'
 
-            if(res.num_literal[i] < 0){
+            if(res.num_literal[i] < '0'){
 
                 res.num_literal[i] += 10;
 
@@ -107,7 +112,7 @@ BigInteger BigInteger::minus(const BigInteger& b) const
 
     for(size_t i = max_len - 1; i < max_len; i--){
 
-        if(res.num_literal[i] == 0)
+        if(res.num_literal[i] == '0')
             res.num_literal.pop_back();
         else
             break;
