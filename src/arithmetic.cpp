@@ -44,7 +44,7 @@ BigInteger BigInteger::plus(const BigInteger& b) const
 	}
 
 	if(carry == 1)
-		res.num_literal.push_back(1);
+		res.num_literal.push_back('1');
 
 	return res;
 }
