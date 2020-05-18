@@ -20,7 +20,7 @@ BigInteger BigInteger::plus(const BigInteger& b) const
 
 	res.num_literal.resize(max_len);
 
-	Digit carry = 0;
+	int carry = 0;
 
 	for(size_t i = 0; i < max_len; i++){
 
@@ -62,7 +62,7 @@ BigInteger BigInteger::minus(const BigInteger& b) const
 
     if(*this >= b){
 
-        Digit borrow = 0;
+        int borrow = 0;
 
         for(size_t i = 0; i < len1; i++){
 
