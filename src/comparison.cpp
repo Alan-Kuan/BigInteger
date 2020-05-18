@@ -56,7 +56,8 @@ bool BigInteger::operator>(const BigInteger& b) const
 
             break;
 
-        }
+        }else if(num_literal[i] < b.num_literal[i])
+            break;
 
     }
 
