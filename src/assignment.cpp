@@ -25,7 +25,7 @@ BigInteger& BigInteger::operator=(int n)
 
 	while(n > 0){
 
-		num_literal.push_back(n % 10);
+		num_literal.push_back(n%10 + '0');
 
 		n /= 10;
 
