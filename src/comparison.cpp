@@ -86,22 +86,22 @@ bool BigInteger::operator<(int b) const
 
 bool BigInteger::operator>=(const BigInteger& b) const
 {
-    return *this > b || *this == b;
+    return !(b > *this);
 }
 
 bool BigInteger::operator>=(int b) const
 {
     BigInteger tmp(b);
-    return *this > tmp || *this == tmp;
+    return !(tmp > *this);
 }
 
 bool BigInteger::operator<=(const BigInteger& b) const
 {
-    return b > *this || *this == b;
+    return !(*this > b);
 }
 
 bool BigInteger::operator<=(int b) const
 {
     BigInteger tmp(b);
-    return tmp > *this || *this == tmp;
+    return !(*this > tmp);
 }
