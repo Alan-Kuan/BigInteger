@@ -20,6 +20,8 @@ BigInteger BigInteger::plus(const BigInteger& b) const
 
 	res.num_literal.resize(max_len);
 
+    res.is_negative = is_negative;
+
 	int carry = 0;
 
 	for(size_t i = 0; i < max_len; i++){
