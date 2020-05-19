@@ -34,7 +34,7 @@ BigInteger BigInteger::operator-(const BigInteger& b) const
 	// either this is negative or b is negative
 	// but not both
 	if(!is_negative != !b.is_negative)
-		return *this + (-b);	
+		return *this + (-b);
 
 	return minus(b);
 }
