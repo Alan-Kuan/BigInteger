@@ -45,6 +45,11 @@ bool BigInteger::operator>(const BigInteger& b) const
     if(num_literal.size() > b.num_literal.size())
         return !is_negative;
 
+    // if len1 < len2 and both numbers are negative, num1 is greater
+    // if len1 < len2 and both numbers are positive, num1 is not greater
+    if(num_literal.size() < b.num_literal.size())
+        return is_negative;
+
     // wheter |num1| > |num2|
     bool abs_val_is_greater = false;
 
