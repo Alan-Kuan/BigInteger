@@ -114,7 +114,7 @@ BigInteger BigInteger::minus(const BigInteger& b) const
 
     for(size_t i = max_len - 1; i < max_len; i--){
 
-        if(res.num_literal[i] == '0')
+        if(res.num_literal[i] == '0' && i != 0)
             res.num_literal.pop_back();
         else
             break;
