@@ -13,7 +13,7 @@ istream& operator>>(istream& is, BigInteger& n)
 
 ostream& operator<<(ostream& os, const BigInteger& n)
 {
-	if(n.is_negative)
+	if(n.is_negative && n.num_literal[0] != '0')
 		os << '-';
 
 	for(size_t i = n.num_literal.size() - 1; i < n.num_literal.size(); i--)
