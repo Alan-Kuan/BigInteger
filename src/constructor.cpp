@@ -3,7 +3,7 @@
 BigInteger::BigInteger(void)
 {
 	is_negative = false;
-	num_literal.push_back(0);
+	num_literal.push_back('0');
 }
 
 BigInteger::BigInteger(const BigInteger& n)
