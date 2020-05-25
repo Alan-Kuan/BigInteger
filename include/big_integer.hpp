@@ -43,6 +43,7 @@ public:
     bool operator<=(const BigInteger&) const;
     bool operator<=(int) const;
 
+	BigInteger operator+(void) const;
 	BigInteger operator-(void) const;
 
 	BigInteger operator+(const BigInteger&) const;

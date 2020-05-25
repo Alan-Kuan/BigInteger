@@ -1,5 +1,11 @@
 #include "big_integer.hpp"
 
+// unary plus
+BigInteger BigInteger::operator+(void) const
+{
+	return *this;
+}
+
 // unary minus
 BigInteger BigInteger::operator-(void) const
 {
