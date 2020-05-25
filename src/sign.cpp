@@ -11,7 +11,8 @@ BigInteger BigInteger::operator-(void) const
 {
     BigInteger tmp(*this);
 
-    tmp.is_negative = !is_negative;
+    if(tmp != 0)
+        tmp.is_negative = !is_negative;
 
 	return tmp;
 }
