@@ -1,6 +1,7 @@
 CXX = g++
 CXXFLAG = -Iinclude/
-EXE = run
+LIB = big_integer.a
+EXE = demo
 
 OBJS = $(addprefix obj/,\
 	   main.o \
@@ -19,7 +20,10 @@ vpath %.cpp src/
 
 .PHONY: all clean
 
-all: $(EXE)
+all: $(LIB) $(EXE)
+
+$(LIB): $(OBJS)
+	ar -src $@ $(OBJS)
 
 $(EXE): $(OBJS)
 	$(CXX) -o $@ $^
