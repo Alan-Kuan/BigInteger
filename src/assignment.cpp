@@ -17,6 +17,16 @@ BigInteger& BigInteger::operator=(const BigInteger& n)
 
 BigInteger& BigInteger::operator=(int n)
 {
+    if(n == 0){
+
+        num_literal.push_back('0');
+
+        is_negative = false;
+
+        return *this;
+
+    }
+
 	num_literal.clear();
 
 	is_negative = n < 0;
@@ -61,5 +71,41 @@ BigInteger& BigInteger::operator-=(const BigInteger& b)
 BigInteger& BigInteger::operator-=(int b)
 {
 	*this = *this - b;
+	return *this;
+}
+
+BigInteger& BigInteger::operator*=(const BigInteger& b)
+{
+	*this = *this * b;
+	return *this;
+}
+
+BigInteger& BigInteger::operator*=(int b)
+{
+	*this = *this * b;
+	return *this;
+}
+
+BigInteger& BigInteger::operator/=(const BigInteger& b)
+{
+	*this = *this / b;
+	return *this;
+}
+
+BigInteger& BigInteger::operator/=(int b)
+{
+	*this = *this / b;
+	return *this;
+}
+
+BigInteger& BigInteger::operator%=(const BigInteger& b)
+{
+	*this = *this % b;
+	return *this;
+}
+
+BigInteger& BigInteger::operator%=(int b)
+{
+	*this = *this % b;
 	return *this;
 }

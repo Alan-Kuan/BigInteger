@@ -7,9 +7,11 @@ OBJS = $(addprefix obj/,\
        from_std_string.o \
 	   assignment.o \
        constructor.o \
+	   sign.o \
        arithmetic.o \
        comparison.o \
 	   addition_and_substraction.o \
+	   multiplication_and_division.o \
        increament_and_decreament.o \
        input_and_output.o)
 

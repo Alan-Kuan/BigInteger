@@ -9,6 +9,8 @@ using std::istream;
 using std::ostream;
 using std::vector;
 using std::string;
+using std::pair;
+using std::make_pair;
 
 typedef char Digit;
 
@@ -23,6 +25,8 @@ protected:
 
 	BigInteger plus(const BigInteger&) const;
 	BigInteger minus(const BigInteger&) const;
+    BigInteger times(const BigInteger&) const;
+    pair<BigInteger, BigInteger> divides(const BigInteger&) const;
 
 public:
 	BigInteger(void);
@@ -51,6 +55,13 @@ public:
 	BigInteger operator-(const BigInteger&) const;
 	BigInteger operator-(int) const;
 
+    BigInteger operator*(const BigInteger&) const;
+    BigInteger operator*(int) const;
+    BigInteger operator/(const BigInteger&) const;
+    BigInteger operator/(int) const;
+    BigInteger operator%(const BigInteger&) const;
+    BigInteger operator%(int) const;
+
 	BigInteger& operator++(void);
 	BigInteger operator++(int);
 	BigInteger& operator--(void);
@@ -64,6 +75,13 @@ public:
 	BigInteger& operator+=(int);
 	BigInteger& operator-=(const BigInteger&);
 	BigInteger& operator-=(int);
+
+	BigInteger& operator*=(const BigInteger&);
+	BigInteger& operator*=(int);
+	BigInteger& operator/=(const BigInteger&);
+	BigInteger& operator/=(int);
+	BigInteger& operator%=(const BigInteger&);
+	BigInteger& operator%=(int);
 
 	friend istream& operator>>(istream&, BigInteger&);
 	friend ostream& operator<<(ostream&, const BigInteger&);

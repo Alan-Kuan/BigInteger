@@ -123,3 +123,90 @@ BigInteger BigInteger::minus(const BigInteger& b) const
 
     return res;
 }
+
+BigInteger BigInteger::times(const BigInteger& b) const
+{
+    BigInteger res;
+
+    for(size_t i = 0; i < b.num_literal.size(); i++){
+
+        if(b.num_literal[i] == '0')
+            continue;
+
+        BigInteger tmp;
+
+        tmp.num_literal.clear();
+
+        tmp.num_literal.assign(i, '0');
+
+        int carry = 0;
+
+        for(size_t j = 0; j < num_literal.size(); j++){
+
+            int mul = (num_literal[j] - '0') * (b.num_literal[i] - '0') + carry;
+
+            carry = mul / 10;
+
+            mul %= 10;
+
+            tmp.num_literal.push_back(mul + '0');
+
+        }
+
+        if(carry > 0)
+            tmp.num_literal.push_back(carry + '0');
+    
+        res += tmp;
+
+    }
+
+    // result is negative iff either this is negative or b is negative, but not both
+    res.is_negative = !is_negative != !b.is_negative;
+
+    return res;
+}
+
+// division of two nonnegative value
+pair<BigInteger, BigInteger> BigInteger::divides(const BigInteger& b) const
+{
+    BigInteger quotient, remainder(*this), divisor(b);
+
+    quotient.num_literal.clear();
+
+    // we only want their absolute values
+    remainder.is_negative = false;
+    divisor.is_negative = false;
+
+    if(remainder < divisor)
+        return make_pair(0, remainder);
+
+    divisor.num_literal.insert(divisor.num_literal.begin(), remainder.num_literal.size() - divisor.num_literal.size(), '0');
+
+    int quotient_digit = 0;
+
+    while(remainder >= b){
+
+        if(remainder < divisor){
+
+            divisor.num_literal.erase(divisor.num_literal.begin());
+
+            quotient.num_literal.insert(quotient.num_literal.begin(), '0' + quotient_digit);
+
+            quotient_digit = 0;
+
+        }else{
+
+            remainder -= divisor;
+
+            quotient_digit++;
+
+        }
+    
+    }
+
+    quotient.num_literal.insert(quotient.num_literal.begin(), '0' + quotient_digit);
+
+    quotient.num_literal.insert(quotient.num_literal.begin(), divisor.num_literal.size() - b.num_literal.size(), '0');
+
+    return make_pair(quotient, remainder);
+}
