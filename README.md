@@ -8,6 +8,8 @@ You may take it or even rewrite it as you like.
 ## Usage
 
 Type the following command:
-<pre>make</pre>
+```bash
+make
+```
 
-Then you will get a demo execution file and the static library which is named as "big_integer.a"
+Then you will get a demo execution file and the static library which is named as **big_integer.a**
